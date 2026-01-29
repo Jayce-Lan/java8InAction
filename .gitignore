@@ -1,0 +1,24 @@
+# 忽略所有 .log 文件
+*.log
+
+# 忽略所有 .tmp 临时文件
+*.tmp
+
+# 忽略特定文件
+config.local.ini
+secrets.env
+
+# 忽略整个目录
+node_modules/
+dist/
+build/
+target/
+
+# 忽略 IDE 配置文件（根据个人使用的编辑器选择）
+.idea/
+.vscode/
+*.swp
+
+# 忽略操作系统生成的文件
+.DS_Store
+Thumbs.db
