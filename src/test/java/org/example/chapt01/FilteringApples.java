@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class FilteringApples {
     private final Logger log = LogManager.getLogger(this.getClass());
@@ -30,6 +31,15 @@ public class FilteringApples {
         List<Apple> apples3 = filterApples(inventory, (Apple apple) ->
                 apple.getWeight() > 150 || "red".equals(apple.getColor()));
         log.info("apples3: {}", apples3);
+
+        // 转换为stream处理
+        List<Apple> apples4 = inventory.stream().filter(apple -> apple.getWeight() > 150).collect(Collectors.toList());
+        log.info("apples4: {}", apples4);
+
+        // 使用parallelStream并行处理
+        List<Apple> apples5 = inventory.parallelStream().filter(apple -> apple.getWeight() < 150)
+                .collect(Collectors.toList());
+        log.info("apples5: {}", apples5);
     }
 
     /**
